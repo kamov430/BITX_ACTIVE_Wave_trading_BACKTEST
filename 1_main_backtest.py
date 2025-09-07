@@ -62,6 +62,8 @@ if __name__ == "__main__":
 	df = df.iloc[::-1].reset_index(drop=True) # 날짜 거꾸로 뒤집기
 	
 	for i in range(len(df)):
+		if i == 0:
+			continue
 		row = df.iloc[i]
 		buy_signal = False
 
@@ -73,10 +75,10 @@ if __name__ == "__main__":
 			mode_setting = aggressive_mode_setting
 		
 		# 매수조건 check
-		close_1day_ago = df.iloc[i-1]["Close"] if i-1 >= 0 else 1000000
+		close_1day_ago = df.iloc[i-1]["Close"]
 		if round((1+mode_setting["buy_condition"])*close_1day_ago,2) > row["Close"] or close_1day_ago == None:
 			buy_signal = True
 		
 		print(1+mode_setting["buy_condition"], close_1day_ago, round((1+mode_setting["buy_condition"])*close_1day_ago,2), buy_signal)
 		print(row["Date"], row["Close"], row["Mode"])
-		# sleep(1)
+		sleep(1)
