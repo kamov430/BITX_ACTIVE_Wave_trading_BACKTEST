@@ -5,7 +5,6 @@ from keys import key, secret, acc_no
 import asyncio
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
-import mojito_edit
 import datetime
 import os
 import pprint

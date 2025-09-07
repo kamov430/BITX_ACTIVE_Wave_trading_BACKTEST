@@ -7,7 +7,6 @@ import ta.momentum
 import asyncio
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
-import mojito_edit
 import datetime
 import os
 import pprint
